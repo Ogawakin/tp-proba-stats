@@ -1,7 +1,6 @@
 import numpy as np
 import math as m
 import matplotlib.pyplot as plt
-import scipy as sc
 
 ## exo 2.1 Loi Binomiale
 def combinaison(k, n):
