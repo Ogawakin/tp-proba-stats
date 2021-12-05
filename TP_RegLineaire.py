@@ -41,14 +41,14 @@ def regression_lineaire(x, y):
     beta_1 = covariance(x,y) / covariance(x,x)
     beta_0 = y_barre - beta_1 * x_barre
 
-    return (beta_1, beta_0) # a * beta_1 + beta_0 (ax + b)
+    return (beta_1, beta_0) # beta_1 * x + beta_0 (ax + b)
 
 
 # Pourcentage de rendement d'un procédé chimique y_i
 # en fonction de la température x_i
 x_i = [45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
 y_i = [43, 45, 48, 51, 55, 57, 59, 63, 66, 68]
-plt.plot(x_i, y_i)
+plt.scatter(x_i, y_i)
 
 a, b = regression_lineaire(x_i, y_i)
 x = np.linspace(x_i[0], x_i[-1]) # Premier et dernier élément de x_i
@@ -73,7 +73,7 @@ A_T = np.transpose(A)
 
 formule = A_T.dot(A)
 formule = np.linalg.inv(formule)
-formule = formule.dot(A_T).dot(y_i) 
+formule = formule.dot(A_T).dot(y_i)
 
 print(formule)
 
