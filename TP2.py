@@ -91,18 +91,18 @@ def ecart_type(liste):
 mu = 0
 sigma = 1
 
-figure, axis = plt.subplots(4)
-figure.suptitle("Theorical normal law (red) and sampled normal law")
+figure, axis = plt.subplots(3)
+figure.suptitle("Theorical normal law (red) and sampled normal law (blue)")
 num_graph = 0
 
-for i in [20, 80, 150, 1000]:
+for i in [20, 80, 150]:
 
     sample = tirage_alea(mu, sigma, i)
     moy, sig = moyenne(sample), ecart_type(sample)
     print(f"Moyenne du sample pour n = {i} : ", moy)
     print(f"Ecart-type du sample pour n = {i} : ", sig, "\n")
 
-    X = np.linspace(-5, 5, 1000)
+    X = np.linspace(-5, 5, 100)
     axis[num_graph].plot(X, 1/(sig * np.sqrt(2 * np.pi)) * np.exp( - (X - moy)**2 / (2 * sig**2)),linewidth=2, label=f"Pour un échantillon de {i}")
     axis[num_graph].plot(X, normal(X, mu, sigma),linewidth=2, color='r')
     axis[num_graph].legend()
@@ -111,12 +111,38 @@ for i in [20, 80, 150, 1000]:
 plt.show()
 
 
-##  Cas de la loi exponentielle
+##  Cas de la loi exponentielle (fonction de densité)
 
+# la fonction de densité de la oi exponentielle : lambda*exp(-x*lambda)
 
+def echantillonage_exp(lambd, n):
+    return np.random.exponential(1/lambd, n)
 
+def estimation_lambda(echantillon):
+    # Dans le cas d'une loi exponnentielle, la variance est égale à 1/lambda**2
+    # donc pour estimer lambda, il faut calculer l'écart-type de l'échantillon
 
+    return 1/ecart_type(echantillon)
 
+lambd = 1.5
+
+fig, axs = plt.subplots(3)
+fig.suptitle("Various sample\'s histogramm with theorical exponential law (red) and sampled exponential law (blue)")
+num_graph = 0
+
+for n in [20, 80, 150]:
+    sample = echantillonage_exp(lambd, n)
+    estimate_lambda = estimation_lambda(sample)
+
+    count, bins, ignored = axs[num_graph].hist(sample, n, density=True)
+
+    X = np.linspace(0, 8, 80)
+    axs[num_graph].plot(X, estimate_lambda * np.exp(-X * estimate_lambda), linewidth=2, label=f"Pour un échantillon de {n}")
+    axs[num_graph].plot(X, lambd * np.exp(-X * lambd),linewidth=2, color='r')
+    axs[num_graph].legend()
+    num_graph += 1
+
+plt.show()
 
 
 
