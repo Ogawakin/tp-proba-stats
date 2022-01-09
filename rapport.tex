@@ -156,7 +156,7 @@ On implémente la décomposition en chaînes$^\text{\cite{schmidt}}$.
 %
 
 
-\section{Exercices}
+\section{Régression linéaire}
 \subsection{Exercice 1}
 \textit{\textcolor{exogris}{
 Dans une premier temps il est demandé d’implémenter les algorithmes de calcul de 2-connexité dû à Schmidt$^\text{\cite{schmidt}}$.
@@ -170,126 +170,38 @@ Dans une premier temps il est demandé d’implémenter les algorithmes de calcu
 \\Ensuite, on fait un traitement différent sur chaque pont, puis sur chaque sommet d'articulation en début de cycle.
 
 
-% ---------- Composantes 2-sommet-connexe  ---------- 
-\begin{algorithm}[H] \caption{Composantes 2-sommets-connexes}
-\begin{algorithmic}
-
-\\ \State \textbf{Entrée :} $ponts$, la liste des ponts, ainsi que $chaines$ la liste des chaînes, en variable globale
-\State \textbf{Sortie :} Les composantes 2-sommets-connexes
-
-\\ \State Prenons une copie du graphe du départ, dans laquelle nous allons effectuer nos modifications.
-
-\\ \ForEach {pont $(u, v)$}
-    \State On supprime l'arête $(u, v)$ du graphe.
-    \State On rajoute un noeud $u'$ (si déjà pris, $u_2$, puis $u_3$, etc) et de même un noeud $v'$.
-    \State On rajoute une arête $(u', v')$ dans le graphe.
-\EndFor
-
-\\ \ForEach {sommet $u$ en début de cycle, à partir de $C_2$}
-    \State Le cycle est de la forme : $u, v_1, ..., v_k, u$
-    \\\State On supprime les arêtes $(u, v_1)$ et $(u, v_k)$ du graphe.        
-    \State On rajoute un noeud $u'$ (si déjà pris, $u_2$, puis $u_3$, etc)
-    \State On rajoute deux arêts $(u', v_1)$ et $(u', v_k)$ dans le graphe.
-    
-    \\\State \textbf{SAUF :} 
-    \State Si le sommet est de degré 2 (c'est-à-dire que ses autres arêtes ont été supprimées entre temps).
-    \State Dans ce cas, on ne fait rien.
-\EndFor
-
-\\ \State \textbf{return} le graphe des composantes 2-sommets-connexes
-\end{algorithmic}
-\end{algorithm}
-% ---------- END Composantes 2-sommet-connexe  ---------- 
-
-
-Voir fonction \codeword{calcule_comp_2_sommet_connexe}.
-%
-%
-\\\\\textbf{Pour obtenir les composantes 2-arêtes-connexes :}
-\\On prend le graphe original, on supprime ses ponts.
-\\Ensuite, on enlève les noeuds restants de degré 0.
-\\Voir fonction \codeword{calcule_comp_2_arete_connexe}.
-%
-
-
-
-\subsection{Exercice 2}
-\textit{\textcolor{exogris}{
-Trouvez un orientation en un graphe fortement connexe$^\text{\cite{schmidt}}$ ou trouvez une arête déconnectante.
-}}
-\\On effectue un DFS pour orienter toutes les arêtes, tel que décrit dans la \textit{Figure 1b}$^\text{\cite{schmidt}}$.
-\\On oriente les arcs de parenté du fils vers le père, et les arcs arrières du père vers le fils.
-\\D'après le théorème de Robbins$^\text{\cite{robbins}}$, le graphe orienté obtenu sera fortement connexe si et seulement si celui-ci était 2-arête-connexe.
-\\\\Au sein de notre fonction \codeword{parcours_graphe()}, nous avons une sous-fonction \codeword{parcours()} qui est une fonction récursive de DFS.
-\\Si jamais le graphe n'est pas connexe, nous faisons appel à la fonction \codeword{lance_parcours()} qui lance un DFS sur chaque sommet non-visité.
-\\Durant la fonction \codeword{parcours()}, nous allons créer un nouveau graphe qui contiendra, en \textcolor[HTML]{333333}{gris foncé}, \textbf{l'arbre de parcours en profondeur}, et en \textcolor[HTML]{a0a0a0}{gris clair} tous les arcs arrières.
-\begin{danger}
-{ \scriptsize \textcolor{danger}{\faIcon{exclamation-triangle} \textbf{ATTENTION}}}
-\vspace{3px}
-\\ Ce graphe est appelé \codeword{arbre_parcours} dans le code (bien qu'il contienne les arcs arrière).
-\end{danger}
-
-\begin{figure}[H]
-    \centering
-     \scalebox{.35}{\includegraphics{graphe-oriente-gris.png}}
-    \\\codeword{arbre_parcours}
-\end{figure}
-
-Pour plus de commodités, nous créons aussi deux graphes à part contenant chacun soit uniquement l'arbre de parcours, soit uniquement les arrières : appelés respectivement \codeword{arbre_parcours_uniquement} et \codeword{arriere}.
-
-\begin{figure}[H]
-    \centering
-     \scalebox{.5}{\includegraphics{arbre_parcours_uniquement.png}}
-    \\\codeword{arbre_parcours_uniquement}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-     \scalebox{.5}{\includegraphics{arriere.png}}
-    \\\codeword{arriere}
-\end{figure}
-
-Le graphe \codeword{arbre_parcours} est donc une orientation en graphe fortement connexe si et seulement si la variable \codeword{deux_arete_connexe} renvoyée par la fonction vaut \codeword{True}.
-\\Si \codeword{deux_arete_connexe} vaut \codeword{False}, alors il suffit de regarder la variable \codeword{ponts} renvoyée par la fonction (ou \codeword{graphe_ponts.edges()}).
-
-
-
-\subsection{Exercice 3}
-\textit{\textcolor{exogris}{
-Montrez qu’un graphe est fortement connexe$^\text{\cite{schmidt}}$ si et seulement si chaque arc est présent dans au moins un circuit de G.
-}}
-\\$\implies$ : On suppose que quelque soit $e$ appartenant à E, $e$ est présent dans au moins un circuit de G. On pose $e$ = {x,y}, avec x,y appartenant à V.
-\\Puisque $e$ est un chemin du sommet x au sommet et que $e$ est présent dans au moins un circuit de G, cela veut dire que le chemin de y à x existe.
-\\Autrement dit, qq soit e un arc tel que e = (x, y) (resp. (y, x)), alors qq soit x, y appartenant à V, il existe un chemin de x à y (resp. y à x) (donc e) et il existe un chemin de y à x (resp. de x à y). Donc, par définition, cela implique que le graphe est fortement connexe.
-%
-\\\\$\impliedby$ :  Par contraposée, on suppose qu'il existe un arc e appartenant à E, tel que e n'apparaisse dans aucun des circuits de G. 
-\\Ainsi, si pose e = (x, y) (resp. (y, x)), avec x, y appartenant à V, alors cela veut dire qu'il existe un chemin de x à y (resp. de y à x) mais il n'en existe pas de y à x (resp. de x à y)
-\\Donc le graphe G n'est pas fortement connexe.
-
-
-
-\subsection{Exercice 4}
-\textit{\textcolor{exogris}{
-Prouvez ou infirmez l’affirmation suivante :
-\\Un graphe est fortement connexe si et seulement si son graphe sous-jacent est 2-arête connexe.
-}}
-\\Voici un exemple qui infirme la proposition.
-Soit ce graphe non-orienté :
-
 \begin{figure}[H]
     \centering
      \scalebox{.35}{\includegraphics{exo4-g2.png}}
     \\Un graphe orienté non fortement connexe
 \end{figure}
 
-Celui-ci n'est pas fortement connexe, car on ne peut pas accéder à 1 à partir de 3 par exemple.
-Or voici son graphe sous-jacent :
-\begin{figure}[H]
-    \centering
-     \scalebox{.35}{\includegraphics{exo4-g1.png}}
-    \\Son graphe sous-jacent
-\end{figure}
-Celui-ci est bien 2-arête-connexe, pourtant le graphe original n'était pas fortement connexe, cela conclut la preuve.
+
+\section{Étude et manipulation de lois de probabilités}
+\subsection{Exercice 1}
+\textit{\textcolor{exogris}{
+Dans une premier temps il est demandé d’implémenter les algorithmes de calcul de 2-connexité dû à Schmidt$^\text{\cite{schmidt}}$.
+\\(1) Calculer les composantes 2-connexes d’un graphe.
+\\(2) Calculer les composantes 2-arêtes-connexes d’un graphe.
+}}
+\\On commence par effectuer la décomposition en chaînes.
+\\\\Grâce aux Lemmes 4 et 5$^\text{\cite{schmidt}}$, on peut identifier les ponts et sommets d'articulation du graphe.
+\\\\\textbf{Pour obtenir les composantes 2-connexes :}
+\\On prend le graphe original, on le copie.
+\\Ensuite, on fait un traitement différent sur chaque pont, puis sur chaque sommet d'articulation en début de cycle.
+
+\section{Intervalles de confiance}
+\subsection{Exercice 1}
+\textit{\textcolor{exogris}{
+Dans une premier temps il est demandé d’implémenter les algorithmes de calcul de 2-connexité dû à Schmidt$^\text{\cite{schmidt}}$.
+\\(1) Calculer les composantes 2-connexes d’un graphe.
+\\(2) Calculer les composantes 2-arêtes-connexes d’un graphe.
+}}
+\\On commence par effectuer la décomposition en chaînes.
+\\\\Grâce aux Lemmes 4 et 5$^\text{\cite{schmidt}}$, on peut identifier les ponts et sommets d'articulation du graphe.
+\\\\\textbf{Pour obtenir les composantes 2-connexes :}
+\\On prend le graphe original, on le copie.
+\\Ensuite, on fait un traitement différent sur chaque pont, puis sur chaque sommet d'articulation en début de cycle.
 
 
 
