@@ -113,7 +113,7 @@ plt.show()
 
 ##  Cas de la loi exponentielle (fonction de densité)
 
-# la fonction de densité de la oi exponentielle : lambda*exp(-x*lambda)
+# la fonction de densité de la loi exponentielle : lambda*exp(-x*lambda)
 
 def echantillonage_exp(lambd, n):
     return np.random.exponential(1/lambd, n)
@@ -124,19 +124,21 @@ def estimation_lambda(echantillon):
 
     return 1/ecart_type(echantillon)
 
-lambd = 1.5
+
+print("Valeur de lambda souhaité (diff de 0) = ", end="")
+lambd = float(input())
 
 fig, axs = plt.subplots(3)
-fig.suptitle("Various sample\'s histogramm with theorical exponential law (red) and sampled exponential law (blue)")
+fig.suptitle(f"Various sample\'s histogramm with theorical exponential law (red) and sampled exponential law (blue) \n lambda = {lambd}")
 num_graph = 0
 
 for n in [20, 80, 150]:
     sample = echantillonage_exp(lambd, n)
     estimate_lambda = estimation_lambda(sample)
 
-    count, bins, ignored = axs[num_graph].hist(sample, n, density=True)
+    count, bins, ignored = axs[num_graph].hist(sample, 30, density=True)
 
-    X = np.linspace(0, 8, 80)
+    X = np.linspace(0, 20, 200)
     axs[num_graph].plot(X, estimate_lambda * np.exp(-X * estimate_lambda), linewidth=2, label=f"Pour un échantillon de {n}")
     axs[num_graph].plot(X, lambd * np.exp(-X * lambd),linewidth=2, color='r')
     axs[num_graph].legend()
@@ -144,6 +146,36 @@ for n in [20, 80, 150]:
 
 plt.show()
 
+## Cas de la loi exponentielle (fonction de répartition)
+
+# la fonction de répartition de la loi exponentielle : 1 - exp(-lambda * x)
+
+def echantillon_repartition_exp(lambd, n):
+    echantillon = np.random.exponential(1/lambd, n)
+    return np.cumsum(echantillon)
+
+
+print("Valeur de lambda souhaité (diff de 0) = ", end="")
+lambd = float(input())
+
+fig, axs = plt.subplots(3)
+fig.suptitle(f"Sample\'s CDF and Theorical CDF (red) \n lambda = {lambd}")
+num_graph = 0
+
+for n in [20, 80, 150]:
+    sample = echantillon_repartition_exp(lambd, n)
+    estimate_lambda = estimation_lambda(sample)
+
+    count, bins, ignored = axs[num_graph].hist(sample, 30, density=True)
+    axs[num_graph].hist(sample, 30, density=True, cumulative=True, label='CDF')
+
+    X = np.linspace(0, 20, 200)
+    axs[num_graph].plot(X, 1 - np.exp(-X * estimate_lambda), linewidth=2, label=f"Pour un échantillon de {n}")
+    axs[num_graph].plot(X, 1 - np.exp(-X * lambd),linewidth=2, color='r')
+    axs[num_graph].legend()
+    num_graph += 1
+
+plt.show()
 
 
 
