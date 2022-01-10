@@ -19,7 +19,7 @@ def variance_empirique(liste):
     x_bar = moyenne_empirique(liste)
 
     for i in range(len(liste)-1):
-        variance = variance + (liste[i] - x_bar)**2
+        variance += (liste[i] - x_bar)**2
 
     return variance
 
