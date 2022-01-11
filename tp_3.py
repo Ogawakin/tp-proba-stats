@@ -19,7 +19,7 @@ def variance_empirique(liste):
     x_bar = moyenne_empirique(liste)
 
     for i in range(len(liste)-1):
-        variance = variance + (liste[i] - x_bar)**2
+        variance += (liste[i] - x_bar)**2
 
     return variance
 
@@ -54,6 +54,7 @@ interval1 = intervalle_confiance(0.05, poids_kg)
 interval2 = intervalle_confiance(0.05, poids_g)
 interval3 = intervalle_confiance(0.01, poids_kg)
 interval4 = intervalle_confiance(0.01, poids_g)
+
 print("intervalle à 95% : ", interval1)
 print("intervalle à 95% : ", interval2)
 print("intervalle à 98% : ", interval3)
