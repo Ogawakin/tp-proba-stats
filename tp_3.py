@@ -37,8 +37,7 @@ plt.show()
 
 def intervalle_confiance(alpha, liste):
     """ calcul d'un intervalle de confiance de 95%
-        ou 99% (possible implémentation pour d'autres
-        valeurs de confiance) """
+        ou 99% (aplha = 0.01 ou 0.05) """
     moyenne = moyenne_empirique(liste)
     ecart_type = m.sqrt(variance_empirique(liste))
     t = 0
@@ -55,5 +54,9 @@ interval1 = intervalle_confiance(0.05, poids_kg)
 interval2 = intervalle_confiance(0.05, poids_g)
 interval3 = intervalle_confiance(0.01, poids_kg)
 interval4 = intervalle_confiance(0.01, poids_g)
-print(interval1, interval2, interval3, interval4)
-# erreur avec la racine car numpy, je vais utiliser celle de maths
+
+print("intervalle à 95% : ", interval1)
+print("intervalle à 95% : ", interval2)
+print("intervalle à 98% : ", interval3)
+print("intervalle à 98% : ", interval4)
+
