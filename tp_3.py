@@ -1,11 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math as m
+import scipy.stats as stats
 
-## problème 1
+## Problème 1
 
 poids_kg = [0.499, 0.509, 0.501, 0.494, 0.498, 0.497, 0.504, 0.506, 0.502, 0.496, 0.495, 0.493, 0.507, 0.505, 0.503, 0.491]
 poids_g = [85.06, 91.44, 87.93, 89.02, 87.28, 82.34, 86.23, 84.16, 88.56, 90.45, 84.91, 89.90, 85.52, 86.75, 88.54, 87.90]
+
 
 def moyenne_empirique(liste):
     """ fonction qui calcule de manière empirique
@@ -18,10 +20,10 @@ def variance_empirique(liste):
     variance = 0
     x_bar = moyenne_empirique(liste)
 
-    for i in range(len(liste)-1):
+    for i in range(0, len(liste)):
         variance += (liste[i] - x_bar)**2
 
-    return variance
+    return variance/(len(liste) - 1)
 
 plt.hist(poids_kg, color = 'yellow', edgecolor = 'red')
 plt.xlabel('valeurs')
@@ -38,25 +40,31 @@ plt.show()
 def intervalle_confiance(alpha, liste):
     """ calcul d'un intervalle de confiance de 95%
         ou 99% (aplha = 0.01 ou 0.05) """
+
     moyenne = moyenne_empirique(liste)
     ecart_type = m.sqrt(variance_empirique(liste))
     t = 0
-    if alpha == 0.05:
-        t = 1.746
-    elif alpha == 0.01:
-        t = 2.583
+
+    # calcul du quartile/fractile pour St((n-1) et d'ordre 1 - alpha/2
+    t = stats.t.ppf(1 - alpha/2, df= len(liste) - 1)
 
     intervalle_gauche = moyenne - t*ecart_type/(m.sqrt(len(liste)))
     intervalle_droit = moyenne + t*ecart_type/(m.sqrt(len(liste)))
-    return [intervalle_gauche, intervalle_droit]
+    return [round(intervalle_gauche, 3), round(intervalle_droit, 3)]
 
 interval1 = intervalle_confiance(0.05, poids_kg)
 interval2 = intervalle_confiance(0.05, poids_g)
 interval3 = intervalle_confiance(0.01, poids_kg)
 interval4 = intervalle_confiance(0.01, poids_g)
 
-print("intervalle à 95% : ", interval1)
-print("intervalle à 95% : ", interval2)
-print("intervalle à 98% : ", interval3)
-print("intervalle à 98% : ", interval4)
+print("Pour pots confiture (en kg), intervalle à 95% : ", interval1)
+print("Pour avocats (en g), intervalle à 95% : ", interval2)
+print("Pour pots confiture (en kg), intervalle à 99% : ", interval3)
+print("Pour avocats (en g), intervalle à 99% : ", interval4)
+
+## Problème 2
+
+# selon l'étude, 95/500 sont satisfait par la compagnie
+# on peut donc en approximer une moyenne de 95/500
+
 
