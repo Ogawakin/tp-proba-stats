@@ -23,7 +23,7 @@ def variance_empirique(liste):
     for i in range(0, len(liste)):
         variance += (liste[i] - x_bar)**2
 
-    return variance/(len(liste) - 1)
+    return variance/(len(liste))
 
 plt.hist(poids_kg, color = 'yellow', edgecolor = 'red')
 plt.xlabel('valeurs')
@@ -67,4 +67,26 @@ print("Pour avocats (en g), intervalle à 99% : ", interval4)
 # selon l'étude, 95/500 sont satisfait par la compagnie
 # on peut donc en approximer une moyenne de 95/500
 
+
+## Problème 3
+
+# Pour cela, on utilise la fonction bernoulli
+# du module scipy.stats et plus précisemment
+# la fonction bernoulli.rvs qui génèrent un array
+# de valeurs de n exdpériences de Bernoulli.
+# bernoulli.rvs(p, n)
+
+print("Taille de l'échantillon voulue : ", end="")
+n = int(input())
+
+# ici, p = 1/2 = 0.5
+echantillon = stats.bernoulli.rvs(0.5, size=n)
+echantillon = echantillon.tolist()
+
+print(f"Pour un échantillon de {n} expériences de Bernoulli ", end="")
+print("indépendantes, voici l'intervalle de confiance à ", end="")
+print("95% pour le paramètre p : ", intervalle_confiance(0.05, echantillon))
+
+# plus le nombre d'expérience augmente, plus les bornes se resserent autour
+# de la valeur véritable du paramètre
 
