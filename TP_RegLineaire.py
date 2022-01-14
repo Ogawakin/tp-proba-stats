@@ -30,7 +30,7 @@ def covariance(x, y):
 
 def regression_lineaire(x, y):
     """Etant donné deux listes x et y de même taille,
-    renvoie leur covariance. """
+    calcule la régression linéaire y = beta_1 * x + beta_0. """
 
     assert len(x) == len(y), 'x et y doivent avoir la même taille.'
     n = len(x)
@@ -61,27 +61,36 @@ plt.plot(x, a_2 * x + b_2) # tracée en vert, elle superpose EXACTEMENT la droit
 
 
 # Modèle vectoriel
-assert len(x_i) == len(y_i), 'x et y doivent avoir la même taille.'
-n = len(x_i)
+def regression_lineaire_vect(x, y):
+    """Etant donné deux listes x et y de même taille,
+    calcule la régression linéaire y = beta_1 * x + beta_0.
 
-x_i = np.array(x_i)
-y_i = np.array(y_i)
+    A l'aide du modèle vectoriel du TP. """
 
-colonne_1 = np.ones((1, n))
-A = np.transpose(np.vstack((colonne_1, x_i)))
-A_T = np.transpose(A)
+    assert len(x) == len(y), 'x et y doivent avoir la même taille.'
+    n = len(x)
 
-formule = A_T.dot(A)
-formule = np.linalg.inv(formule)
-formule = formule.dot(A_T).dot(y_i)
+    x = np.array(x)
+    y = np.array(y)
 
-print(formule)
+    colonne_1 = np.ones((1, n))
+    A = np.transpose(np.vstack((colonne_1, x)))
+    A_T = np.transpose(A)
 
-b, a = formule
+    formule = A_T.dot(A) # on applique la formule du TP
+    formule = np.linalg.inv(formule)
+    formule = formule.dot(A_T).dot(y)
+
+    beta_0, beta_1 = formule
+
+    return (beta_1, beta_0) # beta_1 * x + beta_0 (ax + b)
+
+
+a, b = regression_lineaire_vect(x_i, y_i)
 plt.plot(x, a * x + b)
 
 test = np.random.normal(0, 1, 1000)
-sm.qqplot(y_i)
+#sm.qqplot(y_i)
 
 plt.show()
 

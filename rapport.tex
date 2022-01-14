@@ -126,16 +126,19 @@
 \subsection{Objectifs}
 Les objectifs de ce TPs sont :
 \begin{itemize}
-  \item obj1
-  \item obj2
-  \item obj3
+  \item implémenter nous-mêmes plusieurs algorithmes de régression linéaire et les comparer à des fonctions issues de librairies scientifiques
+  \item manipuler différentes lois vues en cours via leur implémentation issues de librairies scientifiques
+  \item déterminer des intervalles de confiance et effectuer des applications sur quelques exemples
 \end{itemize}
 
-On utilisera pour ceci \textbf{Python} et les bibliothèques de fonctions : Numpy, Scipy, Matplotlib, Statsmodels
+On utilisera pour ceci \textbf{Python} et les bibliothèques de fonctions : Numpy, Scipy, Matplotlib, et Statsmodels, entre autres.
 
 
 
 \subsection{Définitions}
+
+Hugo : tu peux virer ça si t'as aucune définition à mettre
+(tu peux la réutiliser plus bas et virer cette partie aussi)
 \begin{definition}
 { \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
 \vspace{3px}
@@ -146,22 +149,56 @@ On utilisera pour ceci \textbf{Python} et les bibliothèques de fonctions : Nump
 
 
 \subsection{Résumé de notre approche}
-texte
-
+Nous avons 3 fichiers, 1 pour chaque TP.
+\\%
+\\Vis-à-vis du code, nous l’avons documenté à l’aide de la docstring de Python, ainsi que des commentaires normaux : les fonctions se comprennent donc naturellement grâce à ceux-ci.
 
 \section{Régression linéaire}
 \subsection{Régression Linéaire simple}
-texte
+La fonction calculant la régression linéaire simple est "regression\_lineaire".
+\\%
+\\Étant donné deux listes $x$ et $y$ de même taille, elle calcule la régression linéaire $$y = \beta_1 \cdot x + \beta_0$$
+%
+
 \subsubsection{Modèle vectoriel}
-texte
+On applique simplement la formule donnée dans le TP.
+
+La fonction calculant la régression linéaire simple est "regression\_lineaire\_vec".
+\\%
+\\Étant donné deux listes $x$ et $y$ de même taille, elle calcule la régression linéaire en utilisant la méthode vectorielle : $$y = \beta_1 \cdot x + \beta_0$$
+%
+
+
+\subsubsection{Résultats obtenus}
+\begin{figure}[H]
+    \centering
+     \scalebox{.5}{
+        \includegraphics{img/reglin.png}
+    }
+    \\Représentation graphique obtenue avec Matplotlib
+\end{figure}
+%
+En orange sont affichés les points de $(x_i, y_i)$, et on voit plusieurs droites superposées de couleurs différentes, quasiment indiscernables : ce sont nos deux régressions linéaires ainsi que celle de Numpy (polyfit).
+\\Les résultats sont donc concordants : visuellement, toutes les régressions linéaires donnent le même résultat sur ce jeu de donnée.
+%
+\\Les coeffcients sont de mêmes très proches voire égaux.
 
 \subsection{Régression linéaire et descente de gradient}
-
-
+Hugo : todo
 
 \section{Étude et manipulation de lois de probabilités}
 \subsection{Loi Binomiale}
 texte
+
+Si tu veux mettre une image Hugo
+\begin{figure}[H]
+    \centering
+     \scalebox{.35}{  % le chiffre c'est le pourcentage à laquelle l'image est scale
+                      % ici c'est 0.35 donc 35%
+        %\includegraphics{adresse-image.png}
+    }
+    \\Un graphe orienté non fortement connexe
+\end{figure}
 \subsection{Loi Normale univariée}
 texte
 \subsection{Simulation de données à partir d’une loi}
@@ -191,14 +228,7 @@ texte
 
 \section{Exemples d'utilisation du code}
 \subsection{Comment utiliser le code}
-texte
+Hugo : si cette partie est pas pertinente, tu peux la virer
 
-
-\section{Références}
-\begin{thebibliography}{9}
-\bibitem{nom}
-Réf exemple
-
-\end{thebibliography}
 
 \end{document}
