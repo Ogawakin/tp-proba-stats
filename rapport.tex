@@ -175,7 +175,8 @@ La fonction calculant la régression linéaire simple est "regression\_lineaire\
      \scalebox{.5}{
         \includegraphics{img/reglin.png}
     }
-    \\Représentation graphique obtenue avec Matplotlib
+    \\
+    \textit{Représentation graphique obtenue avec Matplotlib}
 \end{figure}
 %
 En orange sont affichés les points de $(x_i, y_i)$, et on voit plusieurs droites superposées de couleurs différentes, quasiment indiscernables : ce sont nos deux régressions linéaires ainsi que celle de Numpy (polyfit).
@@ -217,25 +218,92 @@ texte
 
 
 \section{Intervalles de confiance}
-Le but de cette partie (correspondant au fichier \textsl{tp_3.py}) est de déterminer les intervalles de confiances de différents échantillons statistiques afin de situer, selon une certaine précision, dans quelle plage de valeurs se situe l'espérance de l'échantillon.\\
-Dans les 2 premiers problèmes, nous ne connaissons pas la variance de l'échantillon, ainsi la fonction calculant l'intervalle de confiance des échantillons utilisera la méthode de calcul via l'écart-type empirique et le fractile \textit{t} d'ordre 1 - \dfrac{\alpha}{2} de la loi de student \mathit{St(n-1). Le problème 3, quant à lui, modélise un échantillon de taille \mathit{n} de \mathit{B(p = \dfrac{1}{2})}. Ainsi la variance de la loi de Bernoulli est connue et vaut \mathit{p(1-p)}, donc dans ce cas-là, le calcul de l'intervalle de confiance se fera via la formule utilisant l'écart-type véritable et \textit{u} le fractile d'ordre 1 - \dfrac{\alpha}{2} de la loi \mathit{N(0,1)}.
+Le but de cette partie (correspondant au fichier \textsl{tp3.py}) est de déterminer les intervalles de confiances de différents échantillons statistiques afin de situer, selon une certaine précision, dans quelle plage de valeurs se situe l'espérance de l'échantillon.\\
+Dans les 2 premiers problèmes, nous ne connaissons pas la variance de l'échantillon, ainsi la fonction calculant l'intervalle de confiance des échantillons utilisera la méthode de calcul via l'écart-type empirique et le fractile $t$ d'ordre $1-\dfrac{\alpha}{2}$ de la loi de student $St(n-1)$. Le problème 3, quant à lui, modélise un échantillon de taille $n$ de $B(p = \dfrac{1}{2})$. Ainsi la variance de la loi de Bernoulli est connue et vaut $p(1-p)$, donc dans ce cas là, le calcul de l'intervalle de confiance se fera via la formule utilisant l'écart-type véritable et \textit{u} le fractile d'ordre $1-\dfrac{\alpha}{2}$ de la loi $N(0,1)$.
 
 \subsection{Fonctions}
 
+\textit{Voir les docstring Python pour les informations sur les fonctions, celles-ci donnent leurs rôles précisément}
+
 \subsection{Problème 1}
 On possède deux échantillons de taille 16 à notre disposition : un échantillon de masses de 16 pots de confitures mesurée en kilogramme (kg), et l'autre de masses d'avocats provenant du Mexique mesurée en grammes (g).\\
+\newline
+\textbf{$\rightarrow$On traite l'échantillon de masses en kg en premier.}\\
+\newline
+\textbf{Question 1 :} \\ La moyenne empirique obtenue est de 0.5 kg.\\
+\textbf{Question 2 :} \\ L'histogramme obtenue sur l'échantillon des pots de confitures est le suivant\\
+
+\begin{figure}[H]
+    \centering
+     \scalebox{.75}
+     {
+     	\includegraphics[scale=1]{img/histogr_frequ_masses_pots.png} 
+     }
+     \\
+     \textit{Histogrammes des fréquences des masses des pots de confitures de l'échantillon}
+\end{figure}
+
+\textbf{Question 3 :} \\ On calcule les intervalles de confiances à 95$\%$ et à 99$\%$ pour l'échantillon des masses des pots. On obtient les intervalles suivantes : \\
+
+\begin{center}
+	\begin{itemize}
+		\item $IC_{95\%}(\mu) = [0.497, 0.503]$
+		\item $IC_{99\%}(\mu) = [0.496, 0.504]$
+	\end{itemize}
+\end{center} 
+
+Il y a peu de différences dans notre cas entre l'intervalle à 95$\%$ et l'intervalle à 99$\%$. on remarque par ailleurs que pour une petite variation de l'ordre de $0.001$ sur chacune des bornes de l'intervalle de confiance à 95$\%$ pour passer à celle à 99$\%$, on obtient une variation de +0.04 sur la probabilité de trouver une masse dans celle-ci, (i.e $P(0.496 \le masse\_kg \le 0.504) = 0.99$) ce qui veut dire que la précision est affiné pour une très petite variation à cet ordre de sûreté.\\
+\newline
+$\rightarrow$\textbf{Quant à l'échantillon de masses des avocats du Mexique.}\\
+Après calcul de son intervalle de confiance, avec toujours le fait que l'on ne connaisse pas sa variance, on obtient $IC_{95\%}(\mu) = [85.941, 88.558]$. Autrement dit, pour une masse en g d'un avocat de cet échantillon, on est sûr à 95$\%$ qu'il se situera dans cette intervalle, i.e $P(85.941 \le masse\_g \le 88.558) = 0.95$
+
 \subsection{Problème 2}
-texte
+Voici l'énoncé" du problème 2 : \textit{Une compagnie aérienne souhaite étudier le pourcentage de voyageurs satisfaits par ses services, on en a interrogé 500 choisis au hasard. Parmi eux, 95
+se disent satisfaits. Déterminer un intervalle de confiance pour la proportion
+inconnue de voyageurs satisfaits au niveau 99$\%$.}\\
+
+On ne dispose pas d'échantillon mais on sait que $\dfrac{95}{500}$ personnes se disent satisfaites. On choisit ce même échantillon qui a été pris dans le cadre de l'énoncé (qu'on représente par une liste de 0 et de 1, 0 signifiant que la personne $i$ n'est pas satisfaite et 1 qu'elle est satisfaite) et on pose donc que la moyenne empirique vaut $\dfrac{95}{500}$. On en connait pas la variance de cet échantillon (étant donné qu'il ne suit pas une loi particulière, à priori). Ainsi, puisque la variance empirique est calculée lors de la détermination de l'intervalle de confiance, on exécute la fonction de calcul d'intervalle lors d'une non-connaissance de la variance.\\
+On obtient l'intervalle suivant : $IC_{99\%}(\mu) = [0.145, 0.235]$ \\$\rightarrow$ i.e $P(0.145 \le proportion\_satisfaits \le 0.235) = 0.99$.\\
+\newline
+\textbf{Remarque :} on peut remarquer que la façon donc l'échantillon a été modéliser et les calculs faits que l'échantillon semble être un ensemble de 500 variables aléatoires suivant une loi de Bernoulli de paramètre $\theta$ compris dans notre intervalle de confiance.
+
 \subsection{Problème 3}
-texte
+Dans le problème 3, on utilise la fonction \textit{stats.bernoulli.rvs()} (fonctionnement détaillé dans \textbf{Fonctions}) qui nous permet de générer un tableau ( i.e un échantillon) de $n$ expériences de Bernoulli de paramètre $p = \dfrac{1}{2}$. On convertit ce tableau en liste pour travailler plus facilement dessus ( du fait que le tableau n'est qu'une dimension). Dans le cas présent, nous connaissons la variance, qui vaut très exactement $\sigma^{2} = p(1-p)$.\\
+On calcule donc l'intervalle de confiance en prenant en compte ce fait (et donc en utilisant la fonction appropriée).\\
+On obtient comme intervalles de confiance à 95$\%$ les intervalles suivants selon $n$ : \\
+\newline
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline 
+		$n$ & $IC_{95\%}(\mu)$ \\ 
+		\hline 
+		10 & $[0.19, 0.81]$ \\ 
+		\hline 
+		20 & $[0.331, 0.769]$ \\ 
+		\hline 
+		50 & $[0.381, 0.659]$ \\ 
+		\hline 
+		100 & $[0.422, 0.618]$ \\ 
+		\hline 
+		200 & $[0.501, 0.639]$ \\ 
+		\hline 
+		500 & $[0.428, 0.516]$ \\ 
+		\hline 
+		1000 & $[0.485, 0.547]$ \\ 
+		\hline 
+		10000 & $[0.49, 0.51]$ \\ 
+		\hline 
+		1000000 & $[0.498, 0.5]$ \\ 
+		\hline 
+	\end{tabular}
+\end{center}
 
-
+On remarque que plus l'effectif est grand, plus l'intervalle de confiance se réduit et devient précis quant à la valeur du paramètre trouvable à 95$\%$ dans celui-ci. 
 
 \section{Exemples d'utilisation du code}
 \subsection{Comment utiliser le code}
-Concernant le code, il est séparé en trois fichier, chacun correspondant par son indice à la partie du TP correspondante (\textsl{tp_3.py} avec la partie 3, \textsl{TP2.py} avec la partie 2, ...).
-Si le code est exécuté sur l'IDE \texttt{Pyzo}, alors il est possible (après avoir exécuté "l'en-tête" du code, c'est à dire de la première ligne  au premier ##) d'exécuter séparément chaque sous partie du code, délimitées par \textit{## Problème x}.\\
-Autrement, le code s'exécute normalement et en entier, si \texttt{Pyzo} n'est pas le logiciel où celui-ci est exécuté.
-
+Concernant le code, il est séparé en trois fichier (comme dit plus haut en partie \textbf{\textit{Résumé de notre approche}}), chacun correspondant par son indice à la partie du TP correspondante (\textsl{tp$\_$3.py} avec la partie 3, \textsl{TP2.py} avec la partie 2, ...).
+Si le code est exécuté sur l'IDE \texttt{Pyzo}, alors il est possible (après avoir exécuté "l'en-tête" du code, c'est à dire de la première ligne  au premier $\#\#$) d'exécuter séparément chaque sous partie du code, délimitées par \textit{$\#\#$ Problème x}.\\
+Autrement, le code s'exécute normalement et en entier, si \texttt{Pyzo} n'est pas le logiciel où celui-ci est exécuté. Et bien penser à rentrer une valeur lorsque le programme le demandera (pour le problème 3 notamment).
 
 \end{document}
