@@ -31,9 +31,9 @@ plt.show()
 
 # détermination de l'intervalle de confiance à 95% et 99%
 # Etant donné que la variance est inconnue,
-# on va procédé à un centrage et réduction de celle-ci,
-# (en jouant sur la varaible aléatoire de la loi)
-# ce qui donnera sqrt(n)*(moyenne_empirique - moyenne)/ecart_type_empirique
+# on utilisera la deuxième façon de calculer un intervalle
+# de confiance présenté sur la fiche du TP
+
 
 def intervalle_confiance(alpha, liste):
     """ calcul d'un intervalle de confiance
