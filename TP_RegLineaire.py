@@ -1,87 +1,212 @@
-# Imports
-import numpy as np
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
+\documentclass{article}      % Specifies the document class
+
+% -------------------- Packages --------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fontawesome5}
+\usepackage{listings}
+
+\lstset{language=Python,keywordstyle={\bfseries \color{blue}}}
+\NewDocumentCommand{\codeword}{v}{%
+    \texttt{\textcolor[HTML]{5c5c65}{#1}}%
+}
 
 
-# Fonctions
-def moyenne(x):
-    """ Etant donné une liste x, renvoie sa moyenne. """
-    return sum(x)/len(x)
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Rapport Probabilités et statistiques},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+\usepackage{bookmark}
+\hypersetup{hidelinks} %enlève les cadres rouges autour des hyperliens
 
 
-def covariance(x, y):
-    """ Etant donné deux listes x et y de même taille,
-    renvoie leur covariance. """
+% ---------- PSEUDO CODE : hack to remove indent ----------
+% https://tex.stackexchange.com/questions/354564/how-to-remove-leading-indentation-from-algorithm
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd{\algorithmic}
+  {\ALG@tlm\z@}{\leftmargin\z@\ALG@tlm\z@}
+  {}{}
+\makeatother
 
-    assert len(x) == len(y), 'x et y doivent avoir la même taille.'
-    n = len(x)
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
 
-    x_barre = moyenne(x)
-    y_barre = moyenne(y)
-
-    somme_cov = 0
-
-    for i in range(n):
-        somme_cov += (x[i] - x_barre) * (y[i] - y_barre)
-
-    return somme_cov
-
-
-def regression_lineaire(x, y):
-    """Etant donné deux listes x et y de même taille,
-    calcule la régression linéaire y = beta_1 * x + beta_0. """
-
-    assert len(x) == len(y), 'x et y doivent avoir la même taille.'
-    n = len(x)
-
-    x_barre = moyenne(x)
-    y_barre = moyenne(y)
-
-    beta_1 = covariance(x,y) / covariance(x,x)
-    beta_0 = y_barre - beta_1 * x_barre
-
-    return (beta_1, beta_0) # beta_1 * x + beta_0 (ax + b)
+% add foreach
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
 
-# Pourcentage de rendement d'un procédé chimique y_i
-# en fonction de la température x_i
-x_i = [45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
-y_i = [43, 45, 48, 51, 55, 57, 59, 63, 66, 68]
-plt.scatter(x_i, y_i)
 
-a, b = regression_lineaire(x_i, y_i)
-x = np.linspace(x_i[0], x_i[-1]) # Premier et dernier élément de x_i
-plt.plot(x, a * x + b) # tracée en orange
+% -------------------- Couleurs --------------------
+\definecolor{definition}{HTML}{2f80ed}
+\definecolor{definition-bg}{HTML}{e0ecfd}
 
-a_2, b_2 = np.polyfit(x_i, y_i, deg=1)
-plt.plot(x, a_2 * x + b_2) # tracée en vert, elle superpose EXACTEMENT la droite orange
+\definecolor{danger}{HTML}{e6505f}
+\definecolor{danger-bg}{HTML}{fce5e7}
 
-#plt.show()
+\definecolor{exogris}{gray}{0.4}
 
 
-# Modèle vectoriel
-assert len(x_i) == len(y_i), 'x et y doivent avoir la même taille.'
-n = len(x_i)
 
-x_i = np.array(x_i)
-y_i = np.array(y_i)
+% -------------------- Code --------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-colonne_1 = np.ones((1, n))
-A = np.transpose(np.vstack((colonne_1, x_i)))
-A_T = np.transpose(A)
+\lstdefinestyle{code-style}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
 
-formule = A_T.dot(A)
-formule = np.linalg.inv(formule)
-formule = formule.dot(A_T).dot(y_i)
+% -------------------- Styles --------------------
+\mdfdefinestyle{definition-style}{%
+  innertopmargin=10px,
+  innerbottommargin=10px,
+  linecolor=definition,
+  backgroundcolor=definition-bg,
+  roundcorner=4px
+}
+\newmdenv[style=definition-style]{definition}
 
-print(formule)
+\mdfdefinestyle{danger-style}{%
+  innertopmargin=10px,
+  innerbottommargin=10px,
+  linecolor=danger,
+  backgroundcolor=danger-bg,
+  roundcorner=4px
+}
+\newmdenv[style=danger-style]{danger}
 
-b, a = formule
-plt.plot(x, a * x + b)
 
-test = np.random.normal(0, 1, 1000)
-sm.qqplot(y_i)
+% -------------------- Document --------------------
+\title{Probabilités et Statistiques\\\Large{Projet noté}}
+\author{MADANI Abdenour\\TRIOLET Hugo}
+\date{Licence 3\\2021 - 2022}
+\begin{document}
+\normalsize
+\maketitle
 
-plt.show()
+\renewcommand*\contentsname{Table des matières}
+\tableofcontents
+\newpage
 
+
+
+\section{Introduction}
+\subsection{Objectifs}
+Les objectifs de ce TPs sont :
+\begin{itemize}
+  \item implémenter nous-mêmes plusieurs algorithmes de régression linéaire et les comparer à des fonctions issues de librairies scientifiques
+  \item manipuler différentes lois vues en cours via leur implémentation issues de librairies scientifiques
+  \item déterminer des intervalles de confiance et effectuer des applications sur quelques exemples
+\end{itemize}
+
+On utilisera pour ceci \textbf{Python} et les bibliothèques de fonctions : Numpy, Scipy, Matplotlib, et Statsmodels, entre autres.
+
+
+
+\subsection{Définitions}
+\begin{definition}
+{ \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
+\vspace{3px}
+\\ \underline{\textbf{Mot défini}}
+\vspace{2.5px}
+\\ Définition ici
+\end{definition}
+
+
+\subsection{Résumé de notre approche}
+Nous avons 3 fichiers, 1 pour chaque TP.
+\\%
+\\Vis-à-vis du code, nous l’avons documenté à l’aide de la docstring de Python, ainsi que des commentaires normaux : les fonctions se comprennent donc naturellement grâce à ceux-ci.
+
+\section{Régression linéaire}
+\subsection{Régression Linéaire simple}
+La fonction calculant la régression linéaire simple est regression\_lineaire.
+\\%
+\\Étant donné deux listes $x$ et $y$ de même taille, ellec alcule la régression linéaire $$y = \beta_1 \cdot x + \beta_0$$
+%
+
+\subsubsection{Modèle vectoriel}
+texte
+
+\subsection{Régression linéaire et descente de gradient}
+
+
+
+\section{Étude et manipulation de lois de probabilités}
+\subsection{Loi Binomiale}
+texte
+
+Si tu veux mettre une image Hugo
+\begin{figure}[H]
+    \centering
+     \scalebox{.35}{  % le chiffre c'est le pourcentage à laquelle l'image est scale
+                      % ici c'est 0.35 donc 35%
+        %\includegraphics{adresse-image.png}
+    }
+    \\Un graphe orienté non fortement connexe
+\end{figure}
+\subsection{Loi Normale univariée}
+texte
+\subsection{Simulation de données à partir d’une loi}
+texte
+
+\subsubsection{Cas de la loi normale}
+texte
+
+\subsection{Estimation de densité}
+texte
+
+\subsubsection{Cas de la loi normale}
+texte
+\subsubsection{Cas de la loi exponentielle}
+texte
+
+
+\section{Intervalles de confiance}
+\subsection{Problème 1}
+texte
+\subsection{Problème 2}
+texte
+\subsection{Problème 3}
+texte
+
+
+
+\section{Exemples d'utilisation du code}
+\subsection{Comment utiliser le code}
+texte
+
+
+\end{document}
