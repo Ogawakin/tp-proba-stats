@@ -36,7 +36,6 @@ def intervalle_confiance_1(alpha, liste, variance):
 
     moyenne = moyenne_empirique(liste)
     ecart_type = m.sqrt(variance)
-    u = 0
 
     # calcul du quartile/fractile pour N(0, 1) et d'ordre 1 - alpha/2
     u = stats.norm.ppf(1 - alpha/2)
@@ -54,7 +53,6 @@ def intervalle_confiance_2(alpha, liste):
 
     moyenne = moyenne_empirique(liste)
     ecart_type = m.sqrt(variance_empirique(liste))
-    t = 0
 
     # calcul du quartile/fractile pour St((n-1) et d'ordre 1 - alpha/2
     t = stats.t.ppf(1 - alpha/2, df= len(liste) - 1)
@@ -68,6 +66,9 @@ def intervalle_confiance_2(alpha, liste):
 
 poids_kg = [0.499, 0.509, 0.501, 0.494, 0.498, 0.497, 0.504, 0.506, 0.502, 0.496, 0.495, 0.493, 0.507, 0.505, 0.503, 0.491]
 poids_g = [85.06, 91.44, 87.93, 89.02, 87.28, 82.34, 86.23, 84.16, 88.56, 90.45, 84.91, 89.90, 85.52, 86.75, 88.54, 87.90]
+
+# moyenne empirique de poids_kg
+print("Moyenne empirique de poids_kg = ", moyenne_empirique(poids_kg))
 
 # histogramme des fréquences
 plt.hist(poids_kg, color = 'yellow', edgecolor = 'red')
