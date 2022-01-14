@@ -94,6 +94,7 @@ print("Pour avocats (en g), intervalle à 99% : ", interval4)
 # on peut donc en approximer une moyenne de 95/500
 # Donc la fonction moyenne_empirique doit trouver 95/500
 
+# 1 = satisfait, 0 = non satisfait
 population = [1 for k in range(95)] + [0 for k in range(405)]
 intervalle = intervalle_confiance_2(0.01, population)
 print("\nLa proportion de voyageurs satisfaits se situe entre ", intervalle)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.12.20)  14 JAN 2022 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.12.20)  15 JAN 2022 00:16
 entering extended mode
 **./rapport.tex
 (rapport.tex
@@ -908,562 +908,105 @@ Overfull \hbox (61.9603pt too wide) in paragraph at lines 177--178
  []
 
 
-Overfull \hbox (1.7227pt too wide) in paragraph at lines 181--185
+Overfull \hbox (1.7227pt too wide) in paragraph at lines 182--186
 \OT1/cmr/m/n/10 Les resultats sont donc con-cor-dants : vi-suelle-ment, toutes
  les regressions lineaires
  []
 
 [3 <./img/reglin.png>]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.220 ...correspondant au fichier \textsl{tp_3.py}
-                                                  ) est de déterminer les i...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.220 ...correspondant au fichier \textsl{tp_3.py}
-                                                  ) est de déterminer les i...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ...t au fichier \textsl{tp_3.py}) est de dé
-                                                  terminer les intervalles d...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ...r les intervalles de confiances de diffé
-                                                  rents échantillons statis...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ...tervalles de confiances de différents é
-                                                  chantillons statistiques a...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ...s afin de situer, selon une certaine pré
-                                                  cision, dans quelle plage ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ... quelle plage de valeurs se situe l'espé
-                                                  rance de l'échantillon.\\
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 220.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.220 ... de valeurs se situe l'espérance de l'é
-                                                  chantillon.\\
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 221.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.221 Dans les 2 premiers problè
-                                 mes, nous ne connaissons pas la variance de...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 221.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.221 ...us ne connaissons pas la variance de l'é
-                                                  chantillon, ainsi la fonct...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 221.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.221 ...alculant l'intervalle de confiance des é
-                                                  chantillons utilisera la m...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 221.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.221 ...fiance des échantillons utilisera la mé
-                                                  thode de calcul via l'éca...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 221.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.221 ... utilisera la méthode de calcul via l'é
-                                                  cart-type empirique et le ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-Runaway argument?
-{St(n-1). Le problème 3, quant à lui, modélise un échantillon de \ETC.
-! Paragraph ended before \select@group was complete.
-<to be read again> 
-                   \par 
-l.222 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.222 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (696.99126pt too wide) in paragraph at lines 220--222
-\OT1/cmr/m/n/10 Le but de cette par-tie (cor-re-spon-dant au fichier \OT1/cmr/m
-/sl/10 tp$[]\OML/cmm/m/it/10 :py\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 estded[]termi
-nerlesintervallesdeconfiancesdediff[]rents[]chantillonsstatistiquesafindesituer
-; selonunecertainepr[]cision; dansquelleplagedevaleurssesituel[]esp[]rancedel[]
-[]chantillon:[] 
- []
-
-
-Overfull \hbox (463.70805pt too wide) in paragraph at lines 220--222
-\OML/cmm/m/it/10 Dansles\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 premiersprobl[]mes; n
-ousneconnaissonspaslavariancedel[][]chantillon; ainsilafonctioncalculantl[]inte
-rvalledeconfiancedes[]chantillonsutiliseralam[]thodedecalculvial[][]cart \OMS/c
-msy/m/n/10  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
-
+Overfull \hbox (8.75055pt too wide) in paragraph at lines 221--223
+\OT1/cmr/m/n/10 Dans les 2 pre-miers problemes, nous ne con-nais-sons pas la v
+ari-ance de l'echantillon,
  []
 
 [4]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.236 ...ie du TP correspondante (\textsl{tp_3.py}
-                                                   avec la partie 3, \textsl...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+Underfull \hbox (badness 10000) in paragraph at lines 227--233
 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.236 ...ie du TP correspondante (\textsl{tp_3.py}
-                                                   avec la partie 3, \textsl...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 Si le code est exé
-                         cuté sur l'IDE \texttt{Pyzo}, alors il est possibl...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 Si le code est exécuté
-                               sur l'IDE \texttt{Pyzo}, alors il est possibl...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...exttt{Pyzo}, alors il est possible (aprè
-                                                  s avoir exécuté "l'en-t�...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ... alors il est possible (après avoir exé
-                                                  cuté "l'en-tête" du code...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...s il est possible (après avoir exécuté
-                                                   "l'en-tête" du code, c'e...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...ossible (après avoir exécuté "l'en-tê
-                                                  te" du code, c'est à dire...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ... exécuté "l'en-tête" du code, c'est à
-                                                   dire de la première lign...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...�te" du code, c'est à dire de la premiè
-                                                  re ligne  au premier ##) d...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `macro parameter character #' in math mode.
-l.237 ... dire de la première ligne  au premier #
-                                                  #) d'exécuter séparémen...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in math mode.
-l.237 ...dire de la première ligne  au premier ##
-                                                  ) d'exécuter séparément...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...la première ligne  au premier ##) d'exé
-                                                  cuter séparément chaque ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...�re ligne  au premier ##) d'exécuter sé
-                                                  parément chaque sous part...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...igne  au premier ##) d'exécuter séparé
-                                                  ment chaque sous partie du...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...parément chaque sous partie du code, dé
-                                                  limitées par \textit{## P...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 237.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.237 ...nt chaque sous partie du code, délimité
-                                                  es par \textit{## Problèm...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \itshape ##
-                      ## Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \itshape ####
-                         Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ##
-                                         ## Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ####
-                                            Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ##
-                                         ## Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ####
-                                            Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ##
-                                         ## Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-<argument> \firstchoice@false \itshape ####
-                                            Problème x
-l.237 ... délimitées par \textit{## Problème x}
-                                                  .\\
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 238.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.238 Autrement, le code s'exé
-                               cute normalement et en entier, si \texttt{Pyz...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 238.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.238 ...i \texttt{Pyzo} n'est pas le logiciel où
-                                                   celui-ci est exécuté.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 238.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.238 ...est pas le logiciel où celui-ci est exé
-                                                  cuté.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 238.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.238 ...as le logiciel où celui-ci est exécuté
-                                                  .
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (376.03206pt too wide) in paragraph at lines 236--239
-\OT1/cmr/m/sl/10 in-dice a la par-tie du TP cor-re-spon-dante (tp$[]\OML/cmm/m
-/it/10 :pyaveclapartie\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ; []aveclapartie\OT1/cm
-r/m/n/10 2\OML/cmm/m/it/10 ; :::\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :Silecodeeste
-x[]cut[]surl[]IDE[]; alorsilestpossible\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 apr[]s
-avoirex[]cut[]\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 l[]en \OMS/cmsy/m/n/10  
  []
 
 
-Overfull \hbox (213.19846pt too wide) in paragraph at lines 236--239
-\OML/cmm/m/it/10 t[]te\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 ducode; c[]est[]diredel
-apremi[]religneaupremier\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 d[]ex[]cuters[]par[]m
-entchaquesouspartieducode; d[]limit[]espar[]:[] 
+Underfull \hbox (badness 10000) in paragraph at lines 227--233
+
  []
 
 
-Overfull \hbox (32.68712pt too wide) in paragraph at lines 236--239
-\OML/cmm/m/it/10 Autrement; lecodes[]ex[]cutenormalementetenentier; si[]n[]estp
-aslelogicielo[]celui \OMS/cmsy/m/n/10  
+Underfull \hbox (badness 10000) in paragraph at lines 227--233
+
  []
 
-[5] (rapport.aux) )
-(\end occurred inside a group at level 2)
+<img/histogr_frequ_masses_pots.png, id=89, 403.5075pt x 298.11375pt>
+File: img/histogr_frequ_masses_pots.png Graphic file (type png)
+<use img/histogr_frequ_masses_pots.png>
+Package pdftex.def Info: img/histogr_frequ_masses_pots.png  used on input line 
+239.
+(pdftex.def)             Requested size: 403.50652pt x 298.11302pt.
 
-### simple group (level 2) entered at line 236 ({)
-### simple group (level 1) entered at line 220 ({)
-### bottom level 
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
+
+ []
+
+[5 <./img/histogr_frequ_masses_pots.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 253--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 259--262
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--267
+
+ []
+
+
+Overfull \hbox (13.06412pt too wide) in paragraph at lines 269--273
+\OT1/cmr/m/n/10 detaille dans \OT1/cmr/bx/n/10 Fonc-tions\OT1/cmr/m/n/10 ) qu
+i nous per-met de generer un tableau ( i.e un echantillon)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--273
+
+ []
+
+[6] [7] (rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 26876 strings out of 478685
- 510421 string characters out of 2846684
- 878188 words of memory out of 3000000
- 44516 multiletter control sequences out of 15000+600000
- 414851 words of font info for 70 fonts, out of 8000000 for 9000
+ 26882 strings out of 478685
+ 510646 string characters out of 2846684
+ 878186 words of memory out of 3000000
+ 44519 multiletter control sequences out of 15000+600000
+ 414173 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,10n,102p,736b,1077s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free1.
-enc} <C:\Users\htrio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
-rm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5
-Free-Solid.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/htrio/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/htrio/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/htrio/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/htr
-io/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/U
-sers/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr7.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsl10.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsltt10.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/htrio/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/htrio/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on rapport.pdf (5 pages, 230984 bytes).
+{C:/Program Files/MiKTeX/fonts/enc/dvips/fontawesome5/fa
+5free1.enc} <C:\Users\htrio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\tcrm1000.pk><C:/Program Files/MiKTeX/fonts/type1/public/fontawesome5/FontA
+wesome5Free-Solid.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/htrio/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/htrio/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/htrio/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/h
+trio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:
+/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr12.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr17.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr7.pfb><C:/Users/htrio/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/htrio/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/htrio/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/htrio/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on rapport.pdf (7 pages, 260988 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 254 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 

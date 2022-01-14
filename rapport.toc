@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {4}Intervalles de confiance}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Fonctions}{5}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Problème 1}{5}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Problème 2}{5}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Problème 3}{5}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Exemples d'utilisation du code}{5}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Comment utiliser le code}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {4.3}Problème 2}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Problème 3}{7}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Exemples d'utilisation du code}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Comment utiliser le code}{7}{subsection.5.1}%
