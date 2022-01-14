@@ -90,7 +90,7 @@ a, b = regression_lineaire_vect(x_i, y_i)
 plt.plot(x, a * x + b)
 
 test = np.random.normal(0, 1, 1000)
-sm.qqplot(y_i)
+#sm.qqplot(y_i)
 
 plt.show()
 
