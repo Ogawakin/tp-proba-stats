@@ -30,7 +30,7 @@ def covariance(x, y):
 
 def regression_lineaire(x, y):
     """Etant donné deux listes x et y de même taille,
-    renvoie leur covariance. """
+    calcule la régression linéaire y = beta_1 * x + beta_0. """
 
     assert len(x) == len(y), 'x et y doivent avoir la même taille.'
     n = len(x)
