@@ -217,8 +217,13 @@ texte
 
 
 \section{Intervalles de confiance}
+Le but de cette partie (correspondant au fichier \textsl{tp_3.py}) est de déterminer les intervalles de confiances de différents échantillons statistiques afin de situer, selon une certaine précision, dans quelle plage de valeurs se situe l'espérance de l'échantillon.\\
+Dans les 2 premiers problèmes, nous ne connaissons pas la variance de l'échantillon, ainsi la fonction calculant l'intervalle de confiance des échantillons utilisera la méthode de calcul via l'écart-type empirique et le fractile \textit{t} d'ordre 1 - \dfrac{\alpha}{2} de la loi de student \mathit{St(n-1). Le problème 3, quant à lui, modélise un échantillon de taille \mathit{n} de \mathit{B(p = \dfrac{1}{2})}. Ainsi la variance de la loi de Bernoulli est connue et vaut \mathit{p(1-p)}, donc dans ce cas-là, le calcul de l'intervalle de confiance se fera via la formule utilisant l'écart-type véritable et \textit{u} le fractile d'ordre 1 - \dfrac{\alpha}{2} de la loi \mathit{N(0,1)}.
+
+\subsection{Fonctions}
+
 \subsection{Problème 1}
-texte
+On possède deux échantillons de taille 16 à notre disposition : un échantillon de masses de 16 pots de confitures mesurée en kilogramme (kg), et l'autre de masses d'avocats provenant du Mexique mesurée en grammes (g).\\
 \subsection{Problème 2}
 texte
 \subsection{Problème 3}
@@ -228,7 +233,9 @@ texte
 
 \section{Exemples d'utilisation du code}
 \subsection{Comment utiliser le code}
-Hugo : si cette partie est pas pertinente, tu peux la virer
+Concernant le code, il est séparé en trois fichier, chacun correspondant par son indice à la partie du TP correspondante (\textsl{tp_3.py} avec la partie 3, \textsl{TP2.py} avec la partie 2, ...).
+Si le code est exécuté sur l'IDE \texttt{Pyzo}, alors il est possible (après avoir exécuté "l'en-tête" du code, c'est à dire de la première ligne  au premier ##) d'exécuter séparément chaque sous partie du code, délimitées par \textit{## Problème x}.\\
+Autrement, le code s'exécute normalement et en entier, si \texttt{Pyzo} n'est pas le logiciel où celui-ci est exécuté.
 
 
 \end{document}
