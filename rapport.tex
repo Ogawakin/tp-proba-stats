@@ -135,20 +135,6 @@ Les objectifs de ce TPs sont :
 On utilisera pour ceci \textbf{Python} et les bibliothèques de fonctions : Numpy, Scipy, Matplotlib, et Statsmodels, entre autres.
 
 
-
-\subsection{Définitions}
-
-Hugo : tu peux virer ça si t'as aucune définition à mettre
-(tu peux la réutiliser plus bas et virer cette partie aussi)
-\begin{definition}
-{ \scriptsize \textcolor{definition}{\faIcon{graduation-cap} \textbf{DÉFINITION}}}
-\vspace{3px}
-\\ \underline{\textbf{Mot défini}}
-\vspace{2.5px}
-\\ Définition ici
-\end{definition}
-
-
 \subsection{Résumé de notre approche}
 Nous avons 3 fichiers, 1 pour chaque TP.
 \\%
@@ -227,7 +213,7 @@ Pour les trois cas, on obtient le graphique suivant :\\
 \end{figure}
 
 \subsection{Simulation de données à partir d’une loi}
-
+Dans cette partie, on cherche à simuler des données à partir de la loi normale.\\
 \subsubsection{Cas de la loi normale}
 
 Dans la cas de la loi normale, on utilise la fonction \textit{tirage$\_$alea} afin de créer un échantillon de taille $n$ d'une loi normale centrée réduite (obtenue via la fonction \textit{normal($\mu$, $\sigma$, n) de la bibliothèque \texttt{numpy.random}}).\\
@@ -243,13 +229,56 @@ Seront affichés sur chaque sous-graphique l'histogramme de l'échantillon et la
 \end{figure}
 
 \subsection{Estimation de densité}
-texte
+Dans cette partie, on cherche à estimer la densité pour différentes lois de probabilités.\\
 
 \subsubsection{Cas de la loi normale}
-texte
-\subsubsection{Cas de la loi exponentielle}
-texte
+Dasn le cas de la loi normale (plus précisément dans le cas de la loi normale centrée réduite), on génère un échantillon de taile $n$ selon la fonction \textit{tirage$\_$alea()} définie en partie \textbf{Simulation de données à partir d'une loi}, puis on estime $\mu$ et $\sigma$ grâce aux fonctions \textit{moyenne(..)} et \textit{ecart$\_$type(..)} (qui calculent ici la version empirique des paramètres) qui seront affichés dans le terminal et enfin on affiche la vraie densité (obtenue via la fonction \textit{normal(x, $\mu$, $\sigma$}) et la densité "estimée" afin de comparer les estimations.\\
 
+\begin{figure}[H]
+	\centering
+	\scalebox{0.35}{
+	\includegraphics[scale=1]{img/estim_density_normale.png}  	
+	}
+	\\
+	\textit{Comparaison entre la vraie densité et la densité avec $\mu$ et $\sigma$ estimés sur un  de taille $n$}
+\end{figure}
+
+On remarque que plus l'échantillon devient important,plus la densité "estimée" se resserre autour de la vraie densité (on remarque une sorte d'oscillation de la courbe autour du vraie $\mu$.\\
+
+
+\subsubsection{Cas de la loi exponentielle}
+
+\textbf{Pour la fonction de densité :}\\
+
+De la même manière que pour l'estimation de la densité de la loi normale, on créé un échantillon de taille $n$ via la fonction \textit{echantillonage$\_$exp(..)} (utilisant la fonction \textit{exponential($\dfrac{1}{\lambda}$, $n$} de la bibliothèque \texttt{numpy.random}, qui revoit une valeur aléatoire de la densité exponentielle de paramètre $\lambda$), puis on estime et affiche $\lambda$ (grâce à la fonction \textit{estimation$\_$lambda(..)} où celle-ci utilise la fonction \textit{ecrat$\_$type(..)} (et donc moyenne) définie plus haut dans le code afin de réaliser l'estimation par MV. Enfin on représente la vraie densité (théorique) conjointement avec la densité empirique (estimée).\\
+
+\begin{figure}[H]
+	\centering
+	\scalebox{0.35}{
+	\includegraphics[scale=1]{img/estimation_densite_exponential.png}   	
+	}
+	\\
+	\textit{Comparaison entre la vraie densité ($\lambda$ = 1.5) et la densité avec $\lambda$ estimé sur un échantillon de taille $n$}
+\end{figure}
+
+Conclusion : on remarque que l'estimation de $\lambda$ est d'autant plus précise à mesure que l’échantillon devient grand.\\
+\newline
+\textbf{Pour la fonction de répartition :}\\
+
+On utilise la fonction d’échantillonnage pour la densité de la loi exponentielle (définie ci-dessus) et on estime $\lambda$. On sait que la fonction de répartition pour la loi exponentielle est : $$F(x) = \int_{-\infty}^{\infty} \lambda e^{-x\lambda}dx = 1 - e^{-x\lambda}$$.
+Ainsi lors de l'affichage graphique, on calcule, sur les valeurs de l'échantillon, les valeurs de la fonction de répartition selon le vraie $\lambda$ et celui estimé.\\
+On obtient le graphique suivant :\\
+
+ \begin{figure}[H]
+	\centering
+	\scalebox{0.35}{
+	\includegraphics[scale=1]{img/cdf_expo.png}    	
+	}
+	\\
+	\textit{Comparaison entre la vraie répartition ($\lambda$ = 1.5) et la répartition avec $\lambda$ estimé sur un échantillon de taille $n$}
+\end{figure}
+
+Sans surprise (étant donné qu'on utilise les mêmes fonctions d'obtention d’échantillon et d'estimation que dans le cas de la densité), puisque $\lambda$ est assez bien estimé, la répartition estimée "colle" de près la vraie répartition.
 
 \section{Intervalles de confiance}
 Le but de cette partie (correspondant au fichier \textsl{tp3.py}) est de déterminer les intervalles de confiances de différents échantillons statistiques afin de situer, selon une certaine précision, dans quelle plage de valeurs se situe l'espérance de l'échantillon.\\
@@ -334,6 +363,7 @@ On obtient comme intervalles de confiance à 95$\%$ les intervalles suivants sel
 \end{center}
 
 On remarque que plus l'effectif est grand, plus l'intervalle de confiance se réduit et devient précis quant à la valeur du paramètre trouvable à 95$\%$ dans celui-ci. 
+
 
 \section{Exemples d'utilisation du code}
 \subsection{Comment utiliser le code}

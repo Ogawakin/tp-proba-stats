@@ -95,9 +95,10 @@ def ecart_type(liste):
 mu = 0
 sigma = 1
 
+#création de plusieurs sous-graphiques
 figure, axis = plt.subplots(3)
 figure.suptitle("Theorical normal law (red) and sampled normal law (blue)")
-num_graph = 0
+num_graph = 0       # "numéro" du sous-graphique
 
 for i in [20, 80, 150]:
 
@@ -107,9 +108,12 @@ for i in [20, 80, 150]:
     print(f"Ecart-type du sample pour n = {i} : ", sig, "\n")
 
     X = np.linspace(-5, 5, 100)
-    axis[num_graph].plot(X, 1/(sig * np.sqrt(2 * np.pi)) * np.exp( - (X - moy)**2 / (2 * sig**2)),linewidth=2, label=f"Pour un échantillon de {i}")
+    # affichage de la densité estimée
+    axis[num_graph].plot(X, 1/(sig * np.sqrt(2 * np.pi)) * np.exp(-(X - moy)**2 / (2 * sig**2)),linewidth=2, label=f"Pour un échantillon de {i}")
+    #affichage conjoint de la vraie densité
     axis[num_graph].plot(X, normal(X, mu, sigma),linewidth=2, color='r')
     axis[num_graph].legend()
+    #passage au sous-graphique suivant
     num_graph += 1
 
 plt.show()
@@ -154,11 +158,6 @@ plt.show()
 
 # la fonction de répartition de la loi exponentielle : 1 - exp(-lambda * x)
 
-def echantillon_repartition_exp(lambd, n):
-    echantillon = np.random.exponential(1/lambd, n)
-    return np.cumsum(echantillon)
-
-
 print("Valeur de lambda souhaité (diff de 0) = ", end="")
 lambd = float(input())
 
@@ -167,13 +166,12 @@ fig.suptitle(f"Sample\'s CDF and Theorical CDF (red) \n lambda = {lambd}")
 num_graph = 0
 
 for n in [20, 80, 150]:
-    sample = echantillon_repartition_exp(lambd, n)
+
+    #on crée un échantillon avec la fonction précédente
+    sample = echantillonage_exp(lambd, n)
     estimate_lambda = estimation_lambda(sample)
 
-    count, bins, ignored = axs[num_graph].hist(sample, 30, density=True)
-    axs[num_graph].hist(sample, 30, density=True, cumulative=True, label='CDF')
-
-    X = np.linspace(0, 20, 200)
+    X = np.linspace(0, 8, 80)
     axs[num_graph].plot(X, 1 - np.exp(-X * estimate_lambda), linewidth=2, label=f"Pour un échantillon de {n}")
     axs[num_graph].plot(X, 1 - np.exp(-X * lambd),linewidth=2, color='r')
     axs[num_graph].legend()
