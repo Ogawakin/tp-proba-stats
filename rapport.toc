@@ -7,18 +7,20 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Modèle vectoriel}{3}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Résultats obtenus}{3}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Régression linéaire et descente de gradient}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Descente de gradient}{4}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Résultats obtenus}{4}{subsubsection.2.2.2}%
 \contentsline {section}{\numberline {3}Étude et manipulation de lois de probabilités}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Loi Binomiale}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Loi Normale univariée}{4}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Simulation de données à partir d’une loi}{4}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Cas de la loi normale}{4}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Estimation de densité}{4}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Cas de la loi normale}{4}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Cas de la loi exponentielle}{4}{subsubsection.3.4.2}%
-\contentsline {section}{\numberline {4}Intervalles de confiance}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Fonctions}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Problème 1}{5}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Problème 2}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Problème 3}{7}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Exemples d'utilisation du code}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Comment utiliser le code}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {3.2}Loi Normale univariée}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Simulation de données à partir d’une loi}{6}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Cas de la loi normale}{6}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Estimation de densité}{7}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Cas de la loi normale}{7}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Cas de la loi exponentielle}{7}{subsubsection.3.4.2}%
+\contentsline {section}{\numberline {4}Intervalles de confiance}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Fonctions}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Problème 1}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Problème 2}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Problème 3}{10}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Exemples d'utilisation du code}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Comment utiliser le code}{10}{subsection.5.1}%

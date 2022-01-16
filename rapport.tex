@@ -9,6 +9,7 @@
 \usepackage{float}
 \usepackage{fontawesome5}
 \usepackage{listings}
+\usepackage{stmaryrd}
 
 \lstset{language=Python,keywordstyle={\bfseries \color{blue}}}
 \NewDocumentCommand{\codeword}{v}{%
@@ -185,28 +186,61 @@ En orange sont affichés les points de $(x_i, y_i)$, et on voit plusieurs droite
 \\Les coeffcients sont de mêmes très proches voire égaux.
 
 \subsection{Régression linéaire et descente de gradient}
-Hugo : todo
+L'algorithme utilisé est l'algorithme de gradient, afin d'estimer les paramètres de régression. L'idée ici est de voir la notion d'optimisation (cf. sujet).
+
+\subsubsection{Descente de gradient}
+La fonction qui effectue la descente de gradient est la fonction \textit{regression$\_$poly}, qui implémente l'algorithme.\\
+Étant donné deux listes $x$ et $y$ de même taille, et avec comme autre paramètre $\lambda$ (le pas de descente), un paramètre initial $\beta^0$ et $\epsilon$ (la contrainte de précision), elle calcule la régression polynomiale en utilisant la méthode vectorielle (voir algorithme et formules sur le sujet).
+
+\subsubsection{Résultats obtenus}
+Malheureusement, notre solution est algorithmiquement correct mais il nous est impossible de retrouver des valeurs ne serait-ce qu'approchées des valeurs obtenues pour $\beta_0$ et $\beta_1$. Étant très sensible au paramètre $\lambda$, et étant donné qu'on ne disposait pas de méthode analytique pour le calculer (bien qu'il en existe une (ou plusieurs?)), le calcul par la fonction fonctionne dans le sens où il n'y a aucune erreur sur les calculs et sur la façon de les faire (d'où "algorithmiquement correct").\\
+La comparaison que l'on peut faire par défaut est que le vecteur obtenu via la méthode du gradient (dans notre stricte cas) est extrêmement éloigné du vecteur obtenu par méthode de régression linéaire vectorielle.
 
 \section{Étude et manipulation de lois de probabilités}
 \subsection{Loi Binomiale}
-texte
+Pour représenter graphiquement la loi de probabilité pour les trois donnés dans le sujet, et puis qu’ici on est dans le cas de la loi binomiale, c'est la fonction \textit{binom.pmf(k, n, p)} de la bibliothèque \texttt{scipy.stats} qui sera utilisée.\\
+Pour les trois cas, on obtient le graphique suivant :\\
 
-Si tu veux mettre une image Hugo
 \begin{figure}[H]
     \centering
-     \scalebox{.35}{  % le chiffre c'est le pourcentage à laquelle l'image est scale
-                      % ici c'est 0.35 donc 35%
-        %\includegraphics{adresse-image.png}
+     \scalebox{.65}{
+     \includegraphics[scale=1]{img/loi_binomiale.png} 
     }
+    \\
+    \textit{Représentation de B(n, p) pour des valeurs de k $\in \llbracket 0, 100 \rrbracket$}
 \end{figure}
 
+On remarque que les courbes affichées ont une allure plutôt évidente de Gaussienne.
+
 \subsection{Loi Normale univariée}
-texte
+
+Pour représenter graphiquement la loi de probabilité pour les trois donnés dans le sujet, et puis qu’ici on est dans le cas de la loi binomiale, c'est la fonction \textit{norm.pdf(x, $\mu$, $\sigma$)} (fonction de densité de probabilités) de la bibliothèque \texttt{scipy.stats} qui sera utilisée.\\
+Pour les trois cas, on obtient le graphique suivant :\\
+
+\begin{figure}[H]
+    \centering
+     \scalebox{.65}{
+     \includegraphics[scale=1]{img/loi_normale_univariee.png} 
+    }
+    \\
+    \textit{Représentation de N($\mu$, $\sigma$) pour des valeurs de x $\in$ [-10, 10]}
+\end{figure}
+
 \subsection{Simulation de données à partir d’une loi}
-texte
 
 \subsubsection{Cas de la loi normale}
-texte
+
+Dans la cas de la loi normale, on utilise la fonction \textit{tirage$\_$alea} afin de créer un échantillon de taille $n$ d'une loi normale centrée réduite (obtenue via la fonction \textit{normal($\mu$, $\sigma$, n) de la bibliothèque \texttt{numpy.random}}).\\
+Les exécutions porterons sur des échantillons de taille 100, 1000, 10 000, 100 000 et 1 000 000.
+Seront affichés sur chaque sous-graphique l'histogramme de l'échantillon et la fonction de densité de probabilité de la loi normale centrée réduite.\\
+\begin{figure}[H]
+	\centering
+	\scalebox{0.35}{
+	\includegraphics[scale=1]{img/estimation_loi_normale.png} 	
+	}
+	\\
+	\textit{Échantillons de taille $n$ avec la densité de la loi normale centrée réduite}
+\end{figure}
 
 \subsection{Estimation de densité}
 texte
@@ -223,13 +257,14 @@ Dans les 2 premiers problèmes, nous ne connaissons pas la variance de l'échant
 
 \subsection{Fonctions}
 
-\textit{Voir les docstring Python pour les informations sur les fonctions, celles-ci donnent leurs rôles précisément}
+La fonction \textit{intervalle$\_$confiance$\_$2} est utilisée dans le cas où on ne connaît pas la variance de notre échantillon (problème 1 et 2) alors que la fonction \textit{intervalle$\_$confiance$\_$1} est utilisée dans le cas où la variance de notre échantillon est connue (ou, dans les deux cas par ailleurs, la variance de la loi de la variable aléatoire constituant notre échantillon).
+\textit{Voir les doc string Python pour les informations sur les fonctions, celles-ci donnent leurs rôles précisément}
 
 \subsection{Problème 1}
 On possède deux échantillons de taille 16 à notre disposition : un échantillon de masses de 16 pots de confitures mesurée en kilogramme (kg), et l'autre de masses d'avocats provenant du Mexique mesurée en grammes (g).\\
-\newline
+
 \textbf{$\rightarrow$On traite l'échantillon de masses en kg en premier.}\\
-\newline
+
 \textbf{Question 1 :} \\ La moyenne empirique obtenue est de 0.5 kg.\\
 \textbf{Question 2 :} \\ L'histogramme obtenue sur l'échantillon des pots de confitures est le suivant\\
 
@@ -253,7 +288,7 @@ On possède deux échantillons de taille 16 à notre disposition : un échantill
 \end{center} 
 
 Il y a peu de différences dans notre cas entre l'intervalle à 95$\%$ et l'intervalle à 99$\%$. on remarque par ailleurs que pour une petite variation de l'ordre de $0.001$ sur chacune des bornes de l'intervalle de confiance à 95$\%$ pour passer à celle à 99$\%$, on obtient une variation de +0.04 sur la probabilité de trouver une masse dans celle-ci, (i.e $P(0.496 \le masse\_kg \le 0.504) = 0.99$) ce qui veut dire que la précision est affiné pour une très petite variation à cet ordre de sûreté.\\
-\newline
+
 $\rightarrow$\textbf{Quant à l'échantillon de masses des avocats du Mexique.}\\
 Après calcul de son intervalle de confiance, avec toujours le fait que l'on ne connaisse pas sa variance, on obtient $IC_{95\%}(\mu) = [85.941, 88.558]$. Autrement dit, pour une masse en g d'un avocat de cet échantillon, on est sûr à 95$\%$ qu'il se situera dans cette intervalle, i.e $P(85.941 \le masse\_g \le 88.558) = 0.95$
 
@@ -264,14 +299,14 @@ inconnue de voyageurs satisfaits au niveau 99$\%$.}\\
 
 On ne dispose pas d'échantillon mais on sait que $\dfrac{95}{500}$ personnes se disent satisfaites. On choisit ce même échantillon qui a été pris dans le cadre de l'énoncé (qu'on représente par une liste de 0 et de 1, 0 signifiant que la personne $i$ n'est pas satisfaite et 1 qu'elle est satisfaite) et on pose donc que la moyenne empirique vaut $\dfrac{95}{500}$. On en connait pas la variance de cet échantillon (étant donné qu'il ne suit pas une loi particulière, à priori). Ainsi, puisque la variance empirique est calculée lors de la détermination de l'intervalle de confiance, on exécute la fonction de calcul d'intervalle lors d'une non-connaissance de la variance.\\
 On obtient l'intervalle suivant : $IC_{99\%}(\mu) = [0.145, 0.235]$ \\$\rightarrow$ i.e $P(0.145 \le proportion\_satisfaits \le 0.235) = 0.99$.\\
-\newline
+
 \textbf{Remarque :} on peut remarquer que la façon donc l'échantillon a été modéliser et les calculs faits que l'échantillon semble être un ensemble de 500 variables aléatoires suivant une loi de Bernoulli de paramètre $\theta$ compris dans notre intervalle de confiance.
 
 \subsection{Problème 3}
 Dans le problème 3, on utilise la fonction \textit{stats.bernoulli.rvs()} (fonctionnement détaillé dans \textbf{Fonctions}) qui nous permet de générer un tableau ( i.e un échantillon) de $n$ expériences de Bernoulli de paramètre $p = \dfrac{1}{2}$. On convertit ce tableau en liste pour travailler plus facilement dessus ( du fait que le tableau n'est qu'une dimension). Dans le cas présent, nous connaissons la variance, qui vaut très exactement $\sigma^{2} = p(1-p)$.\\
 On calcule donc l'intervalle de confiance en prenant en compte ce fait (et donc en utilisant la fonction appropriée).\\
 On obtient comme intervalles de confiance à 95$\%$ les intervalles suivants selon $n$ : \\
-\newline
+
 \begin{center}
 	\begin{tabular}{|c|c|}
 		\hline 

@@ -29,7 +29,7 @@ def regression_poly(beta_0, esp, x, y, alpha):
 
 x = [45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
 y = [43, 45, 48, 51, 55, 57, 59, 63, 66, 68]
-beta = regression_poly(np.array([1,1]), 0.001, x, y, 0.1)
+beta = regression_poly(np.array([-1,-1]), 0.001, x, y, 0.1)
 print(beta)
 
 # X = np.linspace(x[0], x[len(x)-1])
